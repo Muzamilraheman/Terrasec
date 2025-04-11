@@ -133,15 +133,14 @@ export default function Home() {
                 </AccordionItem>
               ))}
             </Accordion>
-            <ScrollArea className="h-[400px] w-full">
-              {vulnerabilities.length === 0 && (
+            {vulnerabilities.length === 0 && (
+              <ScrollArea className="h-[400px] w-full">
                 <p className="whitespace-pre-line">{securityReport}</p>
-              )}
-            </ScrollArea>
+              </ScrollArea>
+            )}
           </CardContent>
         </Card>
       )}
     </div>
   );
 }
-
