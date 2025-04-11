@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateSecurityReport } from "@/ai/flows/security-report-generation";
 import { terraformSecurityAnalysis } from "@/ai/flows/terraform-security-analysis";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ShieldAlert, CheckCircle } from "lucide-react";
 import { FileUpload } from "@/components/file-upload";
@@ -144,3 +143,4 @@ export default function Home() {
     </div>
   );
 }
+
