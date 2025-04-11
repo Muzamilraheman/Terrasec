@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,12 +9,17 @@ import { terraformSecurityAnalysis } from "@/ai/flows/terraform-security-analysi
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ShieldAlert, CheckCircle } from "lucide-react";
+import { FileUpload } from "@/components/file-upload";
 
 export default function Home() {
   const [terraformCode, setTerraformCode] = useState<string>("");
   const [securityReport, setSecurityReport] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
+  const handleFileChange = useCallback((content: string) => {
+    setTerraformCode(content);
+  }, []);
 
   const handleAnalyze = async () => {
     setIsLoading(true);
@@ -42,8 +47,9 @@ export default function Home() {
           <CardDescription>Enter your Terraform code for security analysis.</CardDescription>
         </CardHeader>
         <CardContent>
+          <FileUpload onFileChange={handleFileChange} />
           <Textarea
-            placeholder="Paste your Terraform code here..."
+            placeholder="Or paste your Terraform code here..."
             className="mb-2"
             value={terraformCode}
             onChange={(e) => setTerraformCode(e.target.value)}
