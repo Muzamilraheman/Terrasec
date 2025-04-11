@@ -1,4 +1,3 @@
-// src/ai/flows/security-report-generation.ts
 'use server';
 
 /**
@@ -38,10 +37,10 @@ const generateSecurityReportPrompt = ai.definePrompt({
       report: z.string().describe('A detailed security report including identified vulnerabilities, risk scores, and remediation recommendations.'),
     }),
   },
-  prompt: `Based on the following security analysis results of a Terraform configuration, generate a comprehensive security report. The report should include a summary of identified vulnerabilities, a risk score for each vulnerability (High, Medium, Low), and specific, actionable remediation recommendations for each identified issue.
-
+  prompt: `Based on the following security analysis results of a Terraform configuration, generate a comprehensive security report in a well-structured and organized markdown format. The report should include a summary of identified vulnerabilities, a risk score for each vulnerability (High, Medium, Low), and specific, actionable remediation recommendations for each identified issue. Separate security issues from architecture feedback using distinct markdown sections.
+  
 Analysis Results: {{{analysisResults}}}
-
+  
 Report:`,
 });
 

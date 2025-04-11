@@ -1,4 +1,3 @@
-// src/ai/flows/terraform-security-analysis.ts
 'use server';
 /**
  * @fileOverview Analyzes Terraform files for security vulnerabilities and generates a report.
@@ -39,7 +38,21 @@ const terraformSecurityAnalysisPrompt = ai.definePrompt({
   },
   prompt: `You are a security expert specializing in Terraform security.
 
-You will analyze the given Terraform file for potential security vulnerabilities, misconfigurations, and risks based on cloud security best practices. Generate a detailed report including identified vulnerabilities, risk scores, and remediation recommendations.
+You will analyze the given Terraform file for potential security vulnerabilities, misconfigurations, and risks based on cloud security best practices. Generate a detailed report in a well-structured and organized markdown format, making it easy to understand.
+
+The report should contain two main sections:
+
+1.  **Security Issues**: This section should list identified security vulnerabilities, misconfigurations, and risks. Each issue should include:
+    *   A descriptive title
+    *   A risk score (High, Medium, Low)
+    *   A detailed explanation of the vulnerability
+    *   Specific and actionable remediation recommendations
+
+2.  **Architecture Feedback**: This section should provide feedback on the overall architecture defined in the Terraform file, focusing on resilience, fault tolerance, and scalability. It should include:
+    *   Identified architectural weaknesses
+    *   Suggestions for improvement
+
+Separate security issues from architecture feedback using distinct markdown sections.
 
 Terraform File:
 {{{terraformFile}}}
