@@ -1,5 +1,1 @@
-# Firebase Studio
-
-This is a NextJS starter in Firebase Studio.
-
-To get started, take a look at src/app/page.tsx.
+Built a browser-based tool that uses LLMs to analyze Terraform (.tf) files for security flaws and misconfigurations. The tool detects issues related to IAM, networking, and infrastructure best practices. It generates structured security reports with actionable remediation steps
